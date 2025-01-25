@@ -9,5 +9,8 @@ data class Invoice(
     val invoiceNumber: String,
     val issueDate: String,
     val issuerId: Int,
-    val recipientId: Int
+    val recipientId: Int,
+    val taxableAmount: Double,
+    val vat: Double,
+    val total: Double
 )
