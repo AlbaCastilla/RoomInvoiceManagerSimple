@@ -11,10 +11,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.ejecicio.roominvoicemanager.models.Invoice
+import com.ejecicio.roominvoicemanager.viewmodels.InvoiceViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun InvoiceAdd(navController: NavController, viewModel: UsersViewModel) {
+fun InvoiceAdd(navController: NavController, viewModel: InvoiceViewModel) {
     Scaffold(
         topBar = {
             TopAppBar(

@@ -10,10 +10,10 @@ import androidx.navigation.navArgument
 import com.ejecicio.roominvoicemanager.viewmodels.InvoiceViewModel
 import com.ejecicio.roominvoicemanager.views.InvoiceAdd
 import com.ejecicio.roominvoicemanager.views.InvoiceList
-import com.example.roomv1.viewmodels.UsersViewModel
-import com.example.roomv1.views.UserUpdateView
-import com.example.roomv1.views.UserAddView
-import com.example.roomv1.views.UserListView
+//import com.example.roomv1.viewmodels.UsersViewModel
+//import com.example.roomv1.views.UserUpdateView
+//import com.example.roomv1.views.UserAddView
+//import com.example.roomv1.views.UserListView
 
 @SuppressLint("SuspiciousIndentation")
 @Composable
@@ -22,7 +22,7 @@ fun AppNavigation(viewModel: InvoiceViewModel) {
     val navController = rememberNavController()
 
 
-        NavHost(navController = navController, startDestination = "UserListView") {
+        NavHost(navController = navController, startDestination = "InvoiceAddView") {
             composable("InvoiceListView") {
                 InvoiceList(navController, viewModel)
             }
