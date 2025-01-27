@@ -54,6 +54,7 @@ import com.ejecicio.roominvoicemanager.states.InvoiceState
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import android.util.Log
+import com.ejecicio.roominvoicemanager.models.Issuer
 
 class InvoiceViewModel(
     private val dao: InvoiceDatabaseDao
@@ -102,6 +103,15 @@ class InvoiceViewModel(
             Log.d("InvoiceViewModel", "Invoice deleted: ${invoice.id}")
         } catch (e: Exception) {
             Log.e("InvoiceViewModel", "Error deleting invoice", e)
+        }
+    }
+
+    fun addIssuer(issuer: Issuer) = viewModelScope.launch {
+        try {
+            val id = dao.addIssuer(issuer)
+            Log.d("IssuerViewModel", "Issuer added with ID: $id")
+        } catch (e: Exception) {
+            Log.e("IssuerViewModel", "Error adding issuer", e)
         }
     }
 }

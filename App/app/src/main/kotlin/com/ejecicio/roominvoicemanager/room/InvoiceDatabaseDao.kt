@@ -7,6 +7,7 @@ import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
 import com.ejecicio.roominvoicemanager.models.Invoice
+import com.ejecicio.roominvoicemanager.models.Issuer
 import kotlinx.coroutines.flow.Flow
 
 
@@ -36,6 +37,8 @@ interface InvoiceDatabaseDao {
         @Insert
         abstract fun addInvoice(invoice: Invoice?): Long
 
+        @Insert
+        abstract fun addIssuer(issuer: Issuer?): Long
 
         @Delete
         abstract fun deleteInvoice(invoice: Invoice?): Int

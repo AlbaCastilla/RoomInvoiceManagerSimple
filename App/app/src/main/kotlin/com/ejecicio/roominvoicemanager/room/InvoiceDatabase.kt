@@ -31,12 +31,14 @@ package com.ejecicio.roominvoicemanager.room
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import com.ejecicio.roominvoicemanager.models.Invoice
+import com.ejecicio.roominvoicemanager.models.Issuer
 
 @Database(
-    entities = [Invoice::class],
+    entities = [Invoice::class,  Issuer::class],
     version = 1,
     exportSchema = false
 )
 abstract class InvoiceDatabase : RoomDatabase() {
     abstract fun invoiceDao(): InvoiceDatabaseDao
 }
+

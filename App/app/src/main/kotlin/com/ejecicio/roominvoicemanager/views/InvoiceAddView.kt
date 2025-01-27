@@ -85,7 +85,7 @@ import com.ejecicio.roominvoicemanager.viewmodels.InvoiceViewModel
 import java.text.SimpleDateFormat
 import java.util.*
 import androidx.compose.ui.platform.LocalContext
-
+import com.ejecicio.roominvoicemanager.models.Issuer
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -100,6 +100,7 @@ fun InvoiceAdd(navController: NavController, viewModel: InvoiceViewModel) {
         content = { paddingValues ->
             Column(modifier = Modifier.padding(paddingValues)) {
                 InvoiceAddForm(viewModel)
+                IssuerAddForm(viewModel)
             }
         }
     )
@@ -190,6 +191,53 @@ fun InvoiceAddForm(viewModel: InvoiceViewModel) {
             }
         ) {
             Text("Submit")
+        }
+    }
+}
+
+@Composable
+fun IssuerAddForm(viewModel: InvoiceViewModel) {
+    var company by remember { mutableStateOf("") }
+    var taxId by remember { mutableStateOf("") }
+    var address by remember { mutableStateOf("") }
+
+    Column(modifier = Modifier.padding(16.dp)) {
+        OutlinedTextField(
+            value = company,
+            onValueChange = { company = it },
+            label = { Text("Company") }
+        )
+
+        OutlinedTextField(
+            value = taxId,
+            onValueChange = { taxId = it },
+            label = { Text("Tax ID") }
+        )
+
+        OutlinedTextField(
+            value = address,
+            onValueChange = { address = it },
+            label = { Text("Address") }
+        )
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Button(
+            onClick = {
+                // Ensure all fields are filled
+                if (company.isNotEmpty() && taxId.isNotEmpty() && address.isNotEmpty()) {
+                    val newIssuer = Issuer(
+                        company = company,
+                        taxId = taxId,
+                        address = address
+                    )
+                    viewModel.addIssuer(newIssuer)
+                    // Optionally show a success message
+                    // Toast.makeText(LocalContext.current, "Issuer added", Toast.LENGTH_SHORT).show()
+                }
+            }
+        ) {
+            Text("Add Issuer")
         }
     }
 }
