@@ -1,4 +1,4 @@
-package com.example.roomv1.navigation
+package com.ejecicio.roominvoicemanager.navigation
 
 import android.annotation.SuppressLint
 import androidx.compose.runtime.Composable

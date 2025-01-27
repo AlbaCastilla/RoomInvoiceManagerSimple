@@ -1,4 +1,4 @@
-package com.example.roomv1.ui.theme
+package com.ejecicio.roominvoicemanager.ui.theme
 
 import android.app.Activity
 import android.os.Build

@@ -1,4 +1,4 @@
-package com.example.roomv1.navigation
+package com.ejecicio.roominvoicemanager.navigation
 
 sealed class AppScreens (val ruta:String) {
     //object InvoiceListView: AppScreens ("InvoiceListView")
